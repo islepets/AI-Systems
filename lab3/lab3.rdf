@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.semanticweb.org/ilya_slepets/ontologies/2026/2/untitled-ontology-3"
+         xmlns="http://www.semanticweb.org/ilya_slepets/ontologies/2026/2/untitled-ontology-3#">
+
+<owl:Ontology rdf:about="http://www.semanticweb.org/ilya_slepets/ontologies/2026/2/untitled-ontology-3"/>
+
+<owl:ObjectProperty rdf:about="#detectsObstacle">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Drone"/>
+  <rdfs:range rdf:resource="#Obstacle"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasRule">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Drone"/>
+  <rdfs:range rdf:resource="#Rule"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasWeather">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <rdfs:domain rdf:resource="#Drone"/>
+  <rdfs:range rdf:resource="#Weather"/>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#hasAltitude">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:domain rdf:resource="#Drone"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasDistance">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:domain rdf:resource="#Obstacle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasPriority">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:domain rdf:resource="#Rule"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasSpeed">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:domain rdf:resource="#Drone"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasVisibity">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:domain rdf:resource="#Weather"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasWind">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  <rdfs:domain rdf:resource="#Weather"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Drone">
+  <owl:disjointWith rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Obstacle"/>
+
+<owl:Class rdf:about="#Rule"/>
+
+<owl:Class rdf:about="#Weather"/>
+
+<owl:NamedIndividual rdf:about="#CurrentWeather">
+  <hasVisibity rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">92.79479762556926</hasVisibity>
+  <hasWind rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">19.651094590998902</hasWind>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#MyDrone">
+  <rdf:type rdf:resource="#Drone"/>
+  <detectsObstacle rdf:resource="#NearObstacle"/>
+  <hasRule rdf:resource="#Rule_Obstacle"/>
+  <hasRule rdf:resource="#Rule_SpeedHigh"/>
+  <hasRule rdf:resource="#Rule_SpeedLow"/>
+  <hasWeather rdf:resource="#CurrentWeather"/>
+  <hasAltitude rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.0</hasAltitude>
+  <hasSpeed rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0000082273278526</hasSpeed>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#NearObstacle">
+  <hasDistance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasDistance>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rule_Obstacle">
+  <hasPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</hasPriority>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rule_SpeedHigh">
+  <hasPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</hasPriority>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rule_SpeedLow">
+  <hasPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</hasPriority>
+</owl:NamedIndividual>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Drone"/>
+    <rdf:Description rdf:about="#Obstacle"/>
+    <rdf:Description rdf:about="#Weather"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Drone"/>
+    <rdf:Description rdf:about="#Obstacle"/>
+    <rdf:Description rdf:about="#Rule"/>
+    <rdf:Description rdf:about="#Weather"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+
+</rdf:RDF>
